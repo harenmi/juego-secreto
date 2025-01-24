@@ -12,7 +12,6 @@ function asignarTextoElemento(elemento, texto) {
 function verificarIntento() {
     let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
 
-    console.log(intentos);
     if (numeroDeUsuario === numeroSecreto) {
         asignarTextoElemento('p', `Acertaste el número en ${intentos} ${(intentos == 1) ? 'vez' :'veces'}`);
         document.getElementById('reiniciar').removeAttribute('disabled');
@@ -57,6 +56,7 @@ function condicionesIniciales() {
     asignarTextoElemento('p', `Indica un número del 1 al ${numeroMaximo}`);
     numeroSecreto = generarNumeroSecreto();
     intentos = 1;
+    console.log(numeroSecreto);
 }
 
 function reiniciarJuego() {
@@ -69,3 +69,5 @@ function reiniciarJuego() {
     //Deshabilitar el boton de nuevo juego
     document.querySelector('#reiniciar').setAttribute('disabled', 'true');
 }
+
+condicionesIniciales();
